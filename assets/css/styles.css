@@ -533,10 +533,6 @@ img {
   padding: 4rem 0;
 }
 
-.title-detail {
-  margin-top: 40px;
-}
-
 .project-detail__container {
   display: grid;
   grid-template-columns: 1fr;
