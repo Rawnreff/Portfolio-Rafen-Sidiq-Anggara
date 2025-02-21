@@ -114,44 +114,13 @@ img {
   box-shadow: 0 1px 4px rgba(146, 161, 176, 0.15);
 }
 
-/*===== NAV =====*/
+/* ===== NAV ===== */
 .nav {
   height: var(--header-height);
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-weight: var(--font-semi);
-}
-@media screen and (max-width: 767px) {
-  .nav__menu {
-    position: fixed;
-    top: var(--header-height);
-    right: -100%;
-    width: 80%;
-    height: 100%;
-    padding: 2rem;
-    background-color: var(--second-color);
-    transition: 0.5s;
-  }
-}
-.nav__item {
-  margin-bottom: var(--mb-4);
-}
-.nav__link {
-  position: relative;
-  color: #fff;
-}
-.nav__link:hover {
-  position: relative;
-}
-.nav__link:hover::after {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 0.18rem;
-  left: 0;
-  top: 2rem;
-  background-color: var(--first-color);
 }
 .nav__logo {
   color: var(--second-color);
@@ -162,15 +131,52 @@ img {
   cursor: pointer;
 }
 
+.nav__item {
+  position: relative;
+  margin-bottom: var(--mb-4);
+}
+
+.nav__link {
+  position: relative;
+  color: var(--second-color);
+  transition: color 0.5s ease;
+}
+
+.nav__link::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.18rem;
+  left: 0;
+  bottom: -5px;
+  background-color: var(--first-color);
+  transform: scaleX(0);
+  transition: transform 0.6s ease;
+}
+
+.nav__link:hover {
+  color: var(--first-color);
+}
+
+.nav__link:hover::after {
+  transform: scaleX(1);
+}
+
 /*Active menu*/
+.active-link {
+  color: var(--first-color); /* Ubah warna teks menjadi warna aktif */
+}
+
 .active-link::after {
   position: absolute;
   content: "";
   width: 100%;
   height: 0.18rem;
   left: 0;
-  top: 2rem;
+  bottom: -5px; /* Jarak dari teks */
   background-color: var(--first-color);
+  transform: scaleX(1); /* Pastikan garis bawah terlihat */
+  transition: transform 0.6s ease; /* Transisi untuk efek */
 }
 
 /*=== Show menu ===*/
@@ -306,40 +312,59 @@ img {
   border-radius: 0.5rem;
 }
 
-/* ===== WORK =====*/
+/* ===== WORK ===== */
 .work__container {
-  row-gap: 2rem;
-}
-.work__img {
-  box-shadow: 0px 4px 25px rgba(14, 36, 49, 0.15);
-  border-radius: 0.5rem;
-  overflow: hidden;
-}
-.work__img img {
-  transition: 1s;
-}
-.work__img img:hover {
-  transform: scale(1.1);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
 }
 
-/* ===== CONTACT =====*/
-.contact__input {
-  width: 100%;
-  font-size: var(--normal-font-size);
-  font-weight: var(--font-semi);
-  padding: 1rem;
+.work__item {
+  background-color: #fff;
   border-radius: 0.5rem;
-  border: 1.5px solid var(--second-color);
-  outline: none;
-  margin-bottom: var(--mb-4);
+  box-shadow: 0px 4px 25px rgba(14, 36, 49, 0.15);
+  padding: 1.5rem;
+  text-align: center;
 }
-.contact__button {
-  display: block;
-  border: none;
-  outline: none;
+
+.work__title {
+  font-size: var(--h2-font-size);
+  color: var(--first-color);
+  margin: var(--mb-2) 0;
+}
+
+.work__description,
+.work__method,
+.work__result {
   font-size: var(--normal-font-size);
-  cursor: pointer;
-  margin-left: auto;
+  color: var(--second-color);
+  margin: var(--mb-2) 0;
+}
+
+/* ===== CONTACT ===== */
+.contact__info {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 2px 20px rgba(14, 36, 49, 0.15);
+}
+
+.contact__email,
+.contact__phone {
+  font-size: var(--normal-font-size);
+  color: var(--second-color);
+  margin: var(--mb-2);
+}
+
+.contact__email a,
+.contact__phone a {
+  color: var(--first-color);
+  font-weight: var(--font-semi);
+}
+
+.contact__email a:hover,
+.contact__phone a:hover {
+  text-decoration: underline;
 }
 
 /* ===== FOOTER =====*/
