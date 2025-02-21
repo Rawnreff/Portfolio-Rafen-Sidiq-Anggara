@@ -290,17 +290,17 @@ img {
   border-radius: 0.5rem;
   z-index: var(--z-back);
 }
-.skills__html {
-  width: 95%;
-}
-.skills__css {
-  width: 85%;
+.skills__laravel {
+  width: 75%;
 }
 .skills__js {
-  width: 65%;
+  width: 70%;
 }
-.skills__ux {
-  width: 85%;
+.skills__react {
+  width: 60%;
+}
+.skills__db {
+  width: 80%;
 }
 .skills__img {
   border-radius: 0.5rem;
